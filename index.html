@@ -35,7 +35,7 @@
 
         <script src="/socket.io/socket.io.js"></script>
         <script>
-            var socket = io();
+            var socket = io('/io');
 
             function ledOn(){
                 socket.emit('led', 'on');

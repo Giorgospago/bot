@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="ie=edge">
+        <title>ROBOTICS</title>
+        <style>
+            html,body{
+                margin: 0;
+                padding: 30px 0 0 0;
+            }
+            .btn{
+                display: block;
+                margin: 40px auto;
+                padding: 20px 40px;
+                border-radius: 5px;
+                border: none;
+                font-size: 18px;
+                cursor:pointer;
+                color: white;
+                outline:none;
+            }
+
+            .on{background-color: #4CAF50}
+            .on:active{background-color: #2a8a2e}
+
+            .off{background-color: #F44336}
+            .off:active{background-color: #c3261a}
+        </style>
+    </head>
+    <body>
+        <button class="btn on" onclick="ledOn()">Λαμπάκι άναψε</button>
+        <button class="btn off" onclick="ledOff()">Λαμπάκι σβήσε</button>
+
+        <script src="/socket.io/socket.io.js"></script>
+        <script>
+            var socket = io();
+
+            function ledOn(){
+                socket.emit('led', 'on');
+            }
+            function ledOff(){
+                socket.emit('led', 'off');
+            }
+        </script>
+    </body>
+</html>
